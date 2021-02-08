@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Interfaces\CanFly;
+namespace App\Interfaces;
 
 
 interface CanFly

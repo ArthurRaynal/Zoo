@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Interfaces\CanWalk;
+namespace App\Interfaces;
 
 
 interface CanWalk

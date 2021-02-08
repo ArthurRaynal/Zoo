@@ -2,23 +2,34 @@
 require __DIR__ .'/vendor/autoload.php';
 
 $animals = [
-    \App\Animals\Fish::class=>5,
-    \App\Animals\BubbleFish::class=>3,
-    \App\Animals\CatFish::class=>2,
-    \App\Animals\ClownFish::class=>1,
-    \App\Animals\Elephant::class=>2,
-    \App\Animals\Zebra::class=>1,
-    \App\Animals\Parrot::class=>10,
-    \App\Animals\Dove::class=>2
+    \App\Animals\Fish::class=>['Fia','Fib','Fic','Fid','Fie'],
+    \App\Animals\BubbleFish::class=>['Bua','Bub','Buc'],
+    \App\Animals\CatFish::class=>['Caa','Cab'],
+    \App\Animals\ClownFish::class=>['Cla'],
+    \App\Animals\Elephant::class=>['Ela','Elb'],
+    \App\Animals\Zebra::class=>['Zea'],
+    \App\Animals\Parrot::class=>['Paa','Pab','Pac','Pad','Pae','Paf','Pag','Pah','Pai','Paj'],
+    \App\Animals\Dove::class=>['Doa','Dob']
 ];
 
-$zoo = [];
+$animalInZoo = [];
 
-foreach ($animals as $key=>$value){
-    for ($i=0;$i<$value;$i++){
-      $zoo[] = new $key($key);
+foreach ($animals as $animalType=>$animalList){
+    foreach ($animalList as $name){
+      $animalInZoo[] = new $animalType($name);
     }
 }
-foreach ($zoo as $value){
-    echo 'Je suis '. $value->getname(). ' et mon cri est '. $value->noise()."<br/>";
+
+foreach ($animalInZoo as $animal):
+    \App\Zoo::addAnimalToZoo($animal);
+endforeach;
+
+\App\Zoo::visitTheZoo();
+
+
+/**foreach ($myZoo as $animal){
+    $content=explode('\\',get_class($animal));
+    $counter=count($content);
+    echo 'Famille : '. $content[$counter-1].' - '.'Nom : '. $animal->getname(). ' - '. ' Cri : '. $animal->noise()."<br/>";
 }
+ **/

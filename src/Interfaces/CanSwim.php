@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Interfaces\CanSwim;
+namespace App\Interfaces;
 
 
 interface CanSwim
